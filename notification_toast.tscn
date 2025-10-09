@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dii3rhk7mau6k"]
+
+[ext_resource type="Script" uid="uid://bb3b58pkhxcqw" path="res://notification_toast.gd" id="1_xulsl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutn5"]
+bg_color = Color(0.6901961, 0, 0, 0.6313726)
+
+[node name="NotificationToast" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_xulsl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kutn5")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ToastLabel" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+text = "Test Error! Nothing wrong here!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
