@@ -1,7 +1,7 @@
 extends Control
 
 var exec_path = "error"
-var save_file_name = "SaveDate.json"
+var save_file_name = "SaveData.json"
 var full_path = "error"
 
 var data_single_ui_scene = preload("res://data_single_ui.tscn")

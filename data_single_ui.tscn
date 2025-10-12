@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://civknxgrp2qfc"]
+[gd_scene load_steps=5 format=3 uid="uid://civknxgrp2qfc"]
 
 [ext_resource type="Script" uid="uid://btjfrpeeefuxd" path="res://data_single_ui.gd" id="1_37boh"]
+[ext_resource type="StyleBox" uid="uid://coeuexwmd2bt5" path="res://style_box_selected.tres" id="1_ffoxg"]
+[ext_resource type="StyleBox" uid="uid://r3j1ugsbf1jn" path="res://style_box_clear.tres" id="1_rsxoh"]
+
+[sub_resource type="Theme" id="Theme_ffoxg"]
+resource_local_to_scene = true
 
 [node name="DataSingleUI" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -8,12 +13,24 @@ offset_right = 300.0
 offset_bottom = 100.0
 script = ExtResource("1_37boh")
 
+[node name="Outline" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_ffoxg")
+theme_override_styles/panel = ExtResource("1_ffoxg")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_rsxoh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -26,3 +43,5 @@ text = "Title"
 layout_mode = 2
 text = "This is a description of this data block sdgsd"
 autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
