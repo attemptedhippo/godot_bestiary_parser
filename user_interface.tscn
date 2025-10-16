@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qfl6p0asqyli"]
+[gd_scene load_steps=6 format=3 uid="uid://qfl6p0asqyli"]
 
 [ext_resource type="Script" uid="uid://b3t84tfe0h4xt" path="res://user_interface.gd" id="1_i7dvk"]
 [ext_resource type="PackedScene" uid="uid://civknxgrp2qfc" path="res://data_single_ui.tscn" id="1_kxhmu"]
+[ext_resource type="Texture2D" uid="uid://bn4l2yxj3vrrn" path="res://assets/icons/save_file_colored.png" id="2_0jl8t"]
 [ext_resource type="PackedScene" uid="uid://dii3rhk7mau6k" path="res://notification_toast.tscn" id="3_juc2q"]
+[ext_resource type="Texture2D" uid="uid://55fa4pypdiw2" path="res://assets/icons/load_file_colored.png" id="3_up53h"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -22,28 +24,49 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.211521, 0.23888, 0.290166, 1)
 
+[node name="SaveDataLineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 11.0
+offset_right = 490.0
+offset_bottom = 51.0
+text = "SaveData.json"
+
 [node name="SaveDataButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -150.0
-offset_bottom = 50.0
+offset_left = -105.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 55.0
 grow_horizontal = 0
-text = "Save Data"
+text = "Save"
+icon = ExtResource("2_0jl8t")
+expand_icon = true
+
+[node name="LoadDataLineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 80.0
+offset_right = 490.0
+offset_bottom = 120.0
+text = "Creatures.json"
 
 [node name="LoadDataButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -50.0
+offset_left = -105.0
+offset_top = 75.0
+offset_right = -5.0
+offset_bottom = 125.0
 grow_horizontal = 0
-grow_vertical = 0
-text = "Load Data"
+text = "Load"
+icon = ExtResource("3_up53h")
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -52,7 +75,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
-offset_right = -205.0
+offset_right = -280.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -74,34 +97,34 @@ layout_mode = 2
 
 [node name="AddDataButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 440.0
-offset_right = 575.0
-offset_bottom = 480.0
+offset_left = 433.0
+offset_top = 432.0
+offset_right = 583.0
+offset_bottom = 472.0
 text = "Add Data"
 
-[node name="RemoveDataButton" type="Button" parent="."]
+[node name="RemoveSelectedButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 490.0
-offset_right = 575.0
-offset_bottom = 530.0
-text = "Remove Data"
+offset_left = 329.0
+offset_top = 652.0
+offset_right = 479.0
+offset_bottom = 692.0
+text = "Remove Selected"
 
 [node name="TitleLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 330.0
-offset_right = 600.0
-offset_bottom = 370.0
+offset_left = 337.0
+offset_top = 341.0
+offset_right = 537.0
+offset_bottom = 381.0
 placeholder_text = "Enter Title to add"
 
 [node name="DescriptionLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 380.0
-offset_right = 600.0
-offset_bottom = 420.0
+offset_left = 338.0
+offset_top = 385.0
+offset_right = 538.0
+offset_bottom = 425.0
 placeholder_text = "Enter Description to add"
 
 [node name="NotificationToast" parent="." instance=ExtResource("3_juc2q")]
